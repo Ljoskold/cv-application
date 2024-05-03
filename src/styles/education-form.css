@@ -1,0 +1,61 @@
+.form-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.form-title h1 {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+.fold-form-button {
+  grid-column: 2/3;
+  justify-self: end;
+}
+.education-set {
+  display: grid;
+  gap: 20px;
+}
+.date-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.education-set textarea {
+  width: 100%;
+  font-size: 1.2rem;
+}
+.education-set label {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.education-form input[type='date'] {
+  height: 30px;
+}
+.education-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.education-block p {
+  margin: 0;
+}
+.date-p {
+  color: grey;
+}
+.education-work-place {
+  font-size: 1.1rem;
+}
+.major-p {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.location-p {
+  font-size: 1rem;
+}
+.set {
+  display: grid;
+}
+.hidden {
+  display: none;
+}

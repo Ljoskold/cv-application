@@ -1,0 +1,15 @@
+.resume-page {
+  display: flex;
+  flex-direction: row;
+  /* margin-left: 30px; */
+  width: 21cm;
+  box-shadow: 5px 5px 15px rgb(170, 170, 170);
+  height: 29.7cm;
+  background-color: white;
+}
+
+.cv-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

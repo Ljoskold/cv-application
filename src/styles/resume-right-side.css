@@ -1,0 +1,28 @@
+.resume-right-side {
+  margin: 0 20px;
+}
+.fullName-jobTitle {
+  margin-top: 100px;
+  width: calc(100% + 30px);
+  min-height: 104px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateX(-30px);
+  background-color: orange;
+  gap: 10px;
+}
+.fullName-jobTitle h1 {
+  margin: 0;
+  transform: translateY(10px);
+}
+.fullName-jobTitle p {
+  margin: 0;
+  letter-spacing: 4px;
+  font-size: 1.3rem;
+}
+.form-title-render {
+  padding-left: 20px;
+  border-bottom: 1px solid orange;
+}

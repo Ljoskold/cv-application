@@ -1,0 +1,66 @@
+.resume-left-side {
+  display: flex;
+  flex-direction: column;
+  min-width: 257px;
+  margin-top: 20px;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: rgb(50, 50, 50);
+}
+#avatar {
+  width: 203px;
+  height: 250px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.fullname-h1 {
+  color: white;
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+.svg-inline--fa {
+  color: black;
+}
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: orange;
+}
+.contacts-inline-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.contacts-inline-wrapper a {
+  color: white;
+}
+.contacts-inline-wrapper p {
+  margin: 0;
+}
+.render-skills-wrapper {
+  margin: 0 0 0 15px;
+}
+.render-skills-wrapper h1 {
+  color: rgb(239, 239, 239);
+  margin: 20px 0 0 0;
+}
+.hard-skills-render-list {
+  color: #ff5858;
+  font-size: 1.3rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.soft-skills-render-list {
+  color: #b9b9b9;
+  font-size: 1.3rem;
+  margin: 0;
+  letter-spacing: 1px;
+}

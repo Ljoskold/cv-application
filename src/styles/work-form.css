@@ -1,0 +1,26 @@
+.work-set {
+  display: grid;
+  gap: 20px;
+}
+.work-set textarea {
+  width: 100%;
+  font-size: 1.2rem;
+}
+.work-set label {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.work-form input[type='date'] {
+  height: 30px;
+}
+.work-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.work-block p {
+  margin: 0;
+}
+.work-render {
+  grid-column: 2/3;
+}

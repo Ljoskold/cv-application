@@ -1,0 +1,26 @@
+:root {
+  font-family: Helvetica;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #e7e7e7;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+}
+.app {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 0 30px 0;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.all-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  gap: 20px;
+  font-family: Agrandir;
+}

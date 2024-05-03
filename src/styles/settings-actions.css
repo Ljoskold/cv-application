@@ -1,0 +1,40 @@
+.settings {
+  display: flex;
+  position: sticky;
+  top: 10px;
+  justify-content: space-evenly;
+  width: 500px;
+  border-radius: 15px;
+  padding: 20px;
+  gap: 10px;
+  background-color: #0e374e;
+  box-shadow: 1px 1px 15px #0e374ed0;
+  z-index: 1;
+}
+.settings button {
+  display: inline-block;
+  font-family: 'Agrandir';
+  background: none;
+  color: #c7ddd9;
+  font-size: 1.2rem;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+  scale: 1;
+}
+.settings button.icon {
+  background: none;
+  font-size: 2rem;
+  width: 30px;
+}
+.settings button.icon svg {
+  color: #c7ddd9;
+}
+.settings button.clear {
+  background-color: #c24747;
+}
+.settings button:active {
+  transform: scale(0.95);
+}

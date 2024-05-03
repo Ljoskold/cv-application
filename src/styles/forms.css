@@ -1,0 +1,97 @@
+@font-face {
+  font-family: Agrandir;
+  src: url(../../assets/PPAgrandir-Regular.otf);
+}
+.input-controller {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.frame {
+  display: grid;
+  width: 500px;
+  border-radius: 15px;
+  padding: 20px;
+  gap: 20px;
+  background-color: white;
+  box-shadow: 5px 5px 15px rgb(224, 224, 224);
+}
+.input-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0e374e;
+}
+.input-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.input-wrapper {
+  width: 100%;
+}
+.input-label {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.input-field {
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(227, 227, 227);
+  padding-left: 10px;
+  width: 100%;
+}
+.add-form-button {
+  justify-self: center;
+  width: 120px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background-color: #c7ddd9;
+}
+.form-buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 10px;
+}
+.form-button {
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #c7ddd9;
+  cursor: pointer;
+}
+.form-button.cancel {
+  background-color: #f3a2a2;
+}
+.edit-button,
+.delete-button {
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.delete-button svg {
+  color: #c45757;
+}
+.edit-form-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.input-field.date {
+  width: 100px;
+  margin-top: 10px;
+}
+.input-field.textarea {
+  max-width: 485px;
+  min-width: 485px;
+  font-size: 1rem;
+}
