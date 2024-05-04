@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../styles/settings-actions.css';
 import uniqid from 'uniqid';
 import html2canvas from 'html2canvas';
@@ -7,7 +7,7 @@ import randomGuy from '../../../assets/random_guy.jpg';
 import avatar from '../../../assets/avatar.png';
 import { useReactToPrint } from 'react-to-print';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faPrint } from '@fortawesome/free-solid-svg-icons';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 
 export default function SettingsActions({
@@ -18,6 +18,7 @@ export default function SettingsActions({
   setHardSkillsArray,
   setSoftSkillsArray,
   setPicture,
+  toggleChecker,
 }) {
   const [educationTemplate, setEducationTemplate] = useState({
     institution: 'Harvard University',
@@ -36,18 +37,14 @@ export default function SettingsActions({
     position: 'Frontend Developer',
     startDate: '2015/12/25',
     endDate: '2020/08/25',
-    description: `Developed user-facing features for Google's web applications using modern frontend technologies such as React, Angular, and Vue.js.
-    Collaborated with design and product teams to implement responsive and intuitive user interfaces.
-    Optimized web applications for performance, scalability, and cross-browser compatibility.
-    Conducted code reviews and provided constructive feedback to team members.
-    Contributed to the development of internal tools and frameworks to streamline frontend development processes.`,
+    description: `Developed user-facing features for Google's web applications using modern frontend technologies such as React, Angular, and Vue.js. Collaborated with design and product teams to implement responsive and intuitive user interfaces. Optimized web applications for performance, scalability, and cross-browser compatibility. Conducted code reviews and provided constructive feedback to team members. Contributed to the development of internal tools and frameworks to streamline frontend development processes.`,
     isOpen: false,
     id: uniqid(),
   });
 
-  // useState(() => {
-  //   loadTemplates();
-  // }, []);
+  useEffect(() => {
+    loadTemplates();
+  }, []);
 
   function clearForms() {
     setPersonalInfo({
@@ -63,6 +60,7 @@ export default function SettingsActions({
     setHardSkillsArray([]);
     setSoftSkillsArray([]);
     setPicture(avatar);
+    toggleChecker();
   }
 
   function loadTemplates() {

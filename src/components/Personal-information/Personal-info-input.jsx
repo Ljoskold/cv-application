@@ -1,23 +1,8 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import '../../styles/personal-info-form.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons';
-
-function InputField({ label, value, onChange }) {
-  return (
-    <div className="input-wrapper">
-      <p className="input-label">{label}:</p>
-      <input className="input-field" value={value} onChange={onChange}></input>
-    </div>
-  );
-}
-
-InputField.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+import InputField from '../InputField';
 
 function PersonalInformation({ personalInfo, setPersonalInfo, setPicture }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,35 +34,41 @@ function PersonalInformation({ personalInfo, setPersonalInfo, setPicture }) {
           </button>
         </div>
 
-        {isOpen && (
+        <div className={`set ${isOpen ? '' : 'hidden'}`}>
           <>
             <InputField
-              label="Full Name"
+              label="Full Name: "
+              type="text"
               value={personalInfo.fullName || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, fullName: e.target.value })}
             />
             <InputField
-              label="Job Title"
+              label="Job Title: "
+              type="text"
               value={personalInfo.jobTitle || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, jobTitle: e.target.value })}
             />
             <InputField
-              label="Email"
+              label="Email: "
+              type="text"
               value={personalInfo.email || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, email: e.target.value })}
             />
             <InputField
-              label="Phone Number"
+              label="Phone Number: "
+              type="text"
               value={personalInfo.phoneNumber || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, phoneNumber: e.target.value })}
             />
             <InputField
-              label="Website"
+              label="Website: "
+              type="text"
               value={personalInfo.website || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, website: e.target.value })}
             />
             <InputField
-              label="Location"
+              label="Location: "
+              type="text"
               value={personalInfo.personalLocation || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, personalLocation: e.target.value })}
             />
@@ -86,7 +77,7 @@ function PersonalInformation({ personalInfo, setPersonalInfo, setPicture }) {
             </label>
             <input name="picture" type="file" accept="image/png, image/jpeg" onChange={handleSetPicture}></input>
           </>
-        )}
+        </div>
       </div>
     </>
   );

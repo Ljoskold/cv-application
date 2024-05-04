@@ -2,6 +2,8 @@ import EducationRenderer from '../Education/Education-render';
 import WorkRenderer from '../Work/Work-render';
 import DisplayInformation from '../Personal-information/Personal-info-render';
 import SkillsRender from '../Skills/SkillsRender';
+import '../../styles/resume-left-side.css';
+import '../../styles/resume-right-side.css';
 
 export default function ResumeRender({
   personalInfo,

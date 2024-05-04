@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import InputField from '../InputField';
+import ShortFormRender from '../ShortFormRender';
+
 function WorkForm({
   work,
   deleteWork,
@@ -22,72 +22,55 @@ function WorkForm({
   }
   return (
     <>
-      <div className="form-title">
-        {!isActive && (
-          <>
-            <h1>{getWorkById(work.id)}</h1>
-            <div className="edit-form-buttons">
-              <button
-                className="edit-button"
-                title="edit"
-                onClick={() => {
-                  toggleIsOpenWorkForm(work.id);
-                  handleIsActiveChange();
-                }}
-              >
-                <FontAwesomeIcon icon={faPenToSquare} />
-              </button>
-              {/* <button className="delete-button" title="delete" onClick={() => deleteWork(work.id)}>
-                <FontAwesomeIcon icon={faTrashCan} />
-              </button> */}
-            </div>
-          </>
-        )}
-      </div>
+      {!isActive && (
+        <ShortFormRender
+          getId={() => getWorkById(work.id)}
+          toggleForm={() => toggleIsOpenWorkForm(work.id)}
+          handleIsActive={() => handleIsActiveChange()}
+        />
+      )}
+
       {work.isOpen && isActive && (
         <>
           <form className="work-form">
-            <label htmlFor="company">Company: </label>
-            <input
-              className="input-field"
+            <InputField
+              label="Company: "
               type="text"
-              name="company"
               value={work.company}
-              onChange={(e) => handleWorkChange(work.id, e)}
+              inputName="company"
+              onChange={(value) => handleWorkChange(work.id, value)}
             />
-            <label htmlFor="position">Position:</label>
-            <input
-              className="input-field"
+            <InputField
+              label="Position: "
+              type="text"
               value={work.position}
-              name="position"
-              onChange={(e) => handleWorkChange(work.id, e)}
+              inputName="position"
+              onChange={(value) => handleWorkChange(work.id, value)}
             />
             <div className="date-wrapper">
-              <label>Start date:</label>
-              <input
-                className="input-field date"
+              <InputField
+                label="Start date: "
+                type="text"
                 value={work.startDate}
-                type="text"
-                name="startDate"
-                onChange={(e) => handleWorkChange(work.id, e)}
+                inputName="startDate"
+                onChange={(value) => handleWorkChange(work.id, value)}
               />
-              <label>End date:</label>
-              <input
-                className="input-field date"
-                value={work.endDate}
+              <InputField
+                label="End date: "
                 type="text"
-                name="endDate"
-                onChange={(e) => handleWorkChange(work.id, e)}
+                value={work.endDate}
+                inputName="endtDate"
+                onChange={(value) => handleWorkChange(work.id, value)}
               />
             </div>
             <div className="description-wrapper">
-              <label htmlFor="description">Description:</label>
-              <textarea
-                className="input-field textarea"
+              <InputField
+                label="Description: "
+                type="textarea"
                 value={work.description}
-                name="description"
-                onChange={(e) => handleWorkChange(work.id, e)}
-              ></textarea>
+                inputName="description"
+                onChange={(value) => handleWorkChange(work.id, value)}
+              />
             </div>
             <div className="form-buttons">
               <button

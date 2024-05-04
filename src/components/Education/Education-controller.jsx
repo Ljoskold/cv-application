@@ -10,18 +10,21 @@ function EducationController({
   appendCurrEducation,
   educationArray,
   deleteEducation,
-  isPreload,
   toggleIsOpenEducationForm,
+  checker,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    if (educationArray.length === 0) {
+      setIsActive(false);
+    }
+  }, [checker]);
 
   function handleIsActiveChange() {
     setIsActive(!isActive);
   }
-  useEffect(() => {
-    console.log(isActive);
-  }, []);
+
   function openClose() {
     setIsOpen(!isOpen);
   }
@@ -38,7 +41,7 @@ function EducationController({
           </button>
         </div>
 
-        <div className={`set ${isOpen ? '' : 'hidden'}`}>
+        <div className={`education-set ${isOpen ? '' : 'hidden'}`}>
           <>
             {educationArray.map((education) => (
               <EducationForm
@@ -49,21 +52,17 @@ function EducationController({
                 appendCurrEducation={appendCurrEducation}
                 handleIsActiveChange={handleIsActiveChange}
                 isActive={isActive}
-                isPreload={isPreload}
                 deleteEducation={deleteEducation}
                 toggleIsOpenEducationForm={toggleIsOpenEducationForm}
               />
             ))}
           </>
-
           {!isActive && (
             <button
               className="add-form-button"
               onClick={(event) => {
-                // event.stopPropagation();
                 appendCurrEducation(event);
                 handleIsActiveChange();
-                // handleIsActiveChange();
               }}
             >
               <FontAwesomeIcon icon={faPlus} /> education

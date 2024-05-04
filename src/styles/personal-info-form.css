@@ -1,3 +1,6 @@
+.personal-information.frame {
+  transition: height 0.5s ease;
+}
 .svg-inline--fa fa-graduation-cap {
   font-size: 2rem;
 }

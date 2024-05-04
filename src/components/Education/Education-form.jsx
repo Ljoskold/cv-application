@@ -1,20 +1,14 @@
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import ShortFormRender from '../ShortFormRender';
+import InputField from '../InputField';
 function EducationForm({
   education,
   handleChange,
   educationArray,
   deleteEducation,
   isActive,
-  isPreload,
   handleIsActiveChange,
   toggleIsOpenEducationForm,
 }) {
-  useEffect(() => {
-    console.log(`isActive  ${isActive}`);
-  }, [isActive]);
-
   function getEducationById(id) {
     const found = educationArray.find((element) => element.id === id);
     if (!found) {
@@ -29,83 +23,67 @@ function EducationForm({
   return (
     <>
       {!isActive && (
-        <div className="form-title">
-          <h1>{getEducationById(education.id)}</h1>
-          <div className="edit-form-buttons">
-            <button
-              className="edit-button"
-              title="edit"
-              onClick={(e) => {
-                toggleIsOpenEducationForm(education.id);
-                handleIsActiveChange();
-              }}
-            >
-              <FontAwesomeIcon icon={faPenToSquare} />
-            </button>
-            {/* <button className="delete-button" title="delete" onClick={() => deleteEducation(education.id)}>
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button> */}
-          </div>
-        </div>
+        <ShortFormRender
+          getId={() => getEducationById(education.id)}
+          toggleForm={() => toggleIsOpenEducationForm(education.id)}
+          handleIsActive={() => handleIsActiveChange()}
+        />
       )}
       {education.isOpen && isActive && (
         <>
           <form className="education-form">
-            <label htmlFor="institution">University: </label>
-            <input
-              className="input-field"
+            <InputField
+              label="University: "
               type="text"
-              name="institution"
               value={education.institution}
-              onChange={(e) => handleChange(education.id, e)}
+              inputName="institution"
+              onChange={(value) => handleChange(education.id, value)}
             />
-            <label htmlFor="degree">Degree:</label>
-            <input
-              className="input-field"
+            <InputField
+              label="Degree: "
+              type="text"
               value={education.degree}
-              name="degree"
-              onChange={(e) => handleChange(education.id, e)}
+              inputName="degree"
+              onChange={(value) => handleChange(education.id, value)}
             />
-            <label htmlFor="major">Major:</label>
-            <input
-              className="input-field"
+            <InputField
+              label="Major: "
+              type="text"
               value={education.major}
-              name="major"
-              onChange={(e) => handleChange(education.id, e)}
+              inputName="major"
+              onChange={(value) => handleChange(education.id, value)}
             />
-            <label htmlFor="location">Location:</label>
-            <input
-              className="input-field"
+            <InputField
+              label="Location: "
+              type="text"
               value={education.educationLocation}
-              name="educationLocation"
-              onChange={(e) => handleChange(education.id, e)}
+              inputName="educationLocation"
+              onChange={(value) => handleChange(education.id, value)}
             />
             <div className="date-wrapper">
-              <label>Start date:</label>
-              <input
-                className="input-field date"
+              <InputField
+                label="Start date: "
+                type="text"
                 value={education.startDate}
-                type="text"
-                name="startDate"
-                onChange={(e) => handleChange(education.id, e)}
+                inputName="startDate"
+                onChange={(value) => handleChange(education.id, value)}
               />
-              <label>End date:</label>
-              <input
-                className="input-field date"
-                value={education.endDate}
+              <InputField
+                label="End date: "
                 type="text"
-                name="endDate"
-                onChange={(e) => handleChange(education.id, e)}
+                value={education.endDate}
+                inputName="endDate"
+                onChange={(value) => handleChange(education.id, value)}
               />
             </div>
             <div className="description-wrapper">
-              <label htmlFor="description">Description:</label>
-              <textarea
-                className="input-field textarea"
+              <InputField
+                label="Description: "
+                type="textarea"
                 value={education.description}
-                name="description"
-                onChange={(e) => handleChange(education.id, e)}
-              ></textarea>
+                inputName="description"
+                onChange={(value) => handleChange(education.id, value)}
+              />
             </div>
             <div className="form-buttons">
               <button

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../styles/work-form.css';
 import WorkForm from './Work-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,9 +12,16 @@ function WorkController({
   workArray,
   deleteWork,
   toggleIsOpenWorkForm,
+  checker,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    if (workArray.length === 0) {
+      setIsActive(false);
+    }
+  }, [checker]);
 
   function handleIsActiveChange() {
     setIsActive(!isActive);
