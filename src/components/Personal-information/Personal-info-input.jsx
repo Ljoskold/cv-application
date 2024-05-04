@@ -72,10 +72,12 @@ function PersonalInformation({ personalInfo, setPersonalInfo, setPicture }) {
               value={personalInfo.personalLocation || ''}
               onChange={(e) => setPersonalInfo({ ...personalInfo, personalLocation: e.target.value })}
             />
-            <label className="input-label" htmlFor="picture">
-              Upload profile image:
-            </label>
-            <input name="picture" type="file" accept="image/png, image/jpeg" onChange={handleSetPicture}></input>
+            <div className="image-input-wrapper">
+              <label className="input-label" htmlFor="picture">
+                Upload profile image:
+              </label>
+              <input name="picture" type="file" accept="image/png, image/jpeg" onChange={handleSetPicture}></input>
+            </div>
           </>
         </div>
       </div>
